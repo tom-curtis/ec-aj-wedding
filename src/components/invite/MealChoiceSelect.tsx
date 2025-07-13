@@ -1,4 +1,9 @@
-export default function MealChoiceSelect({ course }) {
+type MealChoiceSelectProps = {
+  course: "Starter" | "Main" | "Pudding";
+  name: string;
+};
+
+export default function MealChoiceSelect({ course, name }: MealChoiceSelectProps) {
   const options = {
     Starter: [
       { label: "Beetroot Carpaccio with Goat’s Cheese", value: "beetroot" },
@@ -20,7 +25,7 @@ export default function MealChoiceSelect({ course }) {
       <select
         required
         className="w-full border px-3 py-2 rounded"
-        name={course.toLowerCase()}
+        name={name}
       >
         <option value="">-- Select a {course.toLowerCase()} --</option>
         {options[course].map(({ label, value }) => (
